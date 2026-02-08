@@ -7,28 +7,26 @@ Whisper command line client compatible with original [OpenAI client](https://git
 
 It uses [CTranslate2](https://github.com/OpenNMT/CTranslate2/) and [Faster-whisper](https://github.com/SYSTRAN/faster-whisper) Whisper implementation that is up to 4 times faster than openai/whisper for the same accuracy while using less memory.
 
-Goals of the project:
-* Provide an easy way to use the CTranslate2 Whisper implementation
-* Ease the migration for people using OpenAI Whisper CLI
+Key features:
 
-# 🚀 **NEW PROJECT LAUNCHED!** 🚀
-
-**Open dubbing** is an AI dubbing system which uses machine learning models to automatically translate and synchronize audio dialogue into different languages ! 🎉
-
-### **🔥 Check it out now: [*open-dubbing*](https://github.com/jordimas/open-dubbing) 🔥**
-
+- ✅ 4x faster than OpenAI's Whisper at the same accuracy (up to 16X faster with batched inference)
+- ✅ OpenAI Whisper CLI compatibility (easier migration)
+- ✅ Docker image with pre-loaded models
+- ✅ Speaker Diarization (Speaker Identification)
+- ✅ Voice Activity Detection (VAD) Filter to improve quality
+- ✅ Load your own fine-tuned Whisper models
+- ✅ Live transcription from microphone
+- ✅ Color-coded confidence visualization
 
 # Installation
 
+## Python package
+
 To install the latest stable version, just type:
 
-    pip install -U whisper-ctranslate2
+    pip install whisper-ctranslate2
 
-Alternatively, if you are interested in the latest development (non-stable) version from this repository, just type:
-
-    pip install git+https://github.com/Softcatala/whisper-ctranslate2
-
-# Using prebuild Docker image
+## Using prebuild Docker image
 
 You can use build docker image. First pull the image:
 
@@ -56,7 +54,7 @@ GPU and CPU support is provided by [CTranslate2](https://github.com/OpenNMT/CTra
 
 It has compatibility with x86-64 and AArch64/ARM64 CPU and integrates multiple backends that are optimized for these platforms: Intel MKL, oneDNN, OpenBLAS, Ruy, and Apple Accelerate.
 
-GPU execution requires the NVIDIA libraries cuBLAS 11.x and cuDNN 8.x to be installed on the system. Please refer to the [CTranslate2 documentation](https://opennmt.net/CTranslate2/installation.html)
+GPU execution requires the NVIDIA libraries cuBLAS 11.x to be installed on the system. Please refer to the [CTranslate2 documentation](https://opennmt.net/CTranslate2/installation.html)
 
 By default the best hardware available is selected for inference. You can use the options `--device` and `--device_index` to control manually the selection.
     
@@ -165,7 +163,6 @@ and then the name of the speaker is added in the output files (e.g. JSON, VTT an
 _[SPEAKER_00]: There is a lot of people in this room_
 
 The option `--speaker_name SPEAKER_NAME` allows to use your own string to identify the speaker.
-
 
 # Need help?
 
