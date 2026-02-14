@@ -32,7 +32,7 @@ You can use build docker image. First pull the image:
 
     docker pull ghcr.io/softcatala/whisper-ctranslate2:latest
 
-The Docker image includes the small, medium" and large-v2.
+The Docker image includes the small, medium and large-v2 models.
 
 To run it:
 
@@ -88,7 +88,7 @@ On top of the OpenAI Whisper command line options, there are some specific optio
 
 ## Batched inference
 
-Batched inference transcribes each segment in-dependently which can provide an additional 2x-4x speed increase:
+Batched inference transcribes each segment independently which can provide an additional 2x-4x speed increase:
 
     whisper-ctranslate2 inaguracio2011.mp3 --batched True
     
@@ -105,7 +105,7 @@ no_speech_threshold, condition_on_previous_text, prompt_reset_on_temperature, pr
 
 ## Loading the model from a directory
 
-`--model_directory` option allows to specify the directory from which you want to load a CTranslate2 Whisper model. For example, if you want to load your own quantified [Whisper model](https://opennmt.net/CTranslate2/conversion.html) version or using your own [Whisper fine-tuned](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) version. The model must be in CTranslate2 format.
+`--model_directory` option allows to specify the directory from which you want to load a CTranslate2 Whisper model. For example, if you want to load your own quantized [Whisper model](https://opennmt.net/CTranslate2/conversion.html) version or using your own [Whisper fine-tuned](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) version. The model must be in CTranslate2 format.
 
 ## Using Voice Activity Detection (VAD) filter
 
@@ -130,7 +130,7 @@ Maximum duration of speech chunks in seconds. Longer will be split at the timest
 
 ## Print colors
 
-`--print_colors True` options prints the transcribed text using an experimental color coding strategy based on [whisper.cpp](https://github.com/ggerganov/whisper.cpp) to highlight words with high or low confidence:
+`--print_colors True` options prints the transcribed text using a color coding strategy based on [whisper.cpp](https://github.com/ggerganov/whisper.cpp) to highlight words with high or low confidence:
 
     whisper-ctranslate2 myfile.mp3 --print_colors True
 
@@ -146,7 +146,7 @@ https://user-images.githubusercontent.com/309265/231533784-e58c4b92-e9fb-4256-b4
 
 ## Diarization (speaker identification)
 
-There is experimental diarization support using [`pyannote.audio`](https://github.com/pyannote/pyannote-audio) to identify speakers. At the moment, the support is at segment level.
+Diarization support using [`pyannote.audio`](https://github.com/pyannote/pyannote-audio) to identify speakers. At the moment, the support is at segment level.
 
 To enable diarization you need to follow these steps:
 
@@ -158,7 +158,7 @@ And then execute passing the HuggingFace API token as parameter to enable diariz
 
     whisper-ctranslate2 --hf_token YOUR_HF_TOKEN
 
-and then the name of the speaker is added in the output files (e.g. JSON, VTT and STR files):
+and then the name of the speaker is added in the output files (e.g. JSON, VTT and SRT files):
 
 _[SPEAKER_00]: There is a lot of people in this room_
 
